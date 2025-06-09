@@ -20,7 +20,6 @@ class OBJ:
             glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, ix, iy, 0, GL_RGBA, GL_UNSIGNED_BYTE, image)
             return texid
         except Exception as e:
-            print(f"Error loading texture {imagefile}: {e}")
             return None
 
     @classmethod
@@ -47,7 +46,6 @@ class OBJ:
                     if os.path.exists(imagefile):
                         mtl['texture_Kd'] = cls.loadTexture(imagefile)
                     else:
-                        print(f"Texture file not found: {imagefile}")
                         mtl['texture_Kd'] = None
                 else:
                     try:
@@ -108,7 +106,7 @@ class OBJ:
                     if os.path.exists(mtl_file):
                         self.mtl = self.loadMaterial(mtl_file)
                     else:
-                        print(f"Material file not found: {mtl_file}")
+                        print(f"--")
                         
                 elif values[0] == 'f':
                     # Face definition
